@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Car Zone — Vehicle details page (vehicle.html)
+   Loaded after styles.css. Only what the shared system doesn't already cover:
+   price block, gallery + thumbnails, lightbox, finance aside, toast.
+   ========================================================================== */
+
+/* Title row — price block, right-aligned on desktop */
+.vh-price { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 4px; }
+.vh-actions { display: flex; gap: 8px; margin-top: 12px; }
+
+
+/* Gallery
+   ========================================================================== */
+.gal-main {
+  position: relative; height: 560px;
+  border-radius: var(--r-32); border: 1px solid var(--line-08);
+  overflow: hidden; background: var(--surface);
+}
+.gal-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0;
+  transition: opacity var(--dur-5) var(--ease-out);
+}
+.gal-img.is-on { opacity: 1; }
+.gal-bar {
+  position: absolute; left: 24px; right: 24px; bottom: 24px; z-index: 1;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.gal-count {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 44px; padding: 0 16px; border-radius: var(--r-pill);
+  font-weight: 700; color: var(--heading); font-variant-numeric: tabular-nums;
+}
+.gal-btn { height: 44px; padding: 0 16px; font-size: 14px; line-height: 20px; }
+/* Darker glass tint so the white labels stay readable over bright sky / road */
+.gal-bar .gal-count, .gal-bar .gal-btn { background: linear-gradient(180deg, rgba(10,14,23,.66), rgba(10,14,23,.52)); }
+
+/* Thumbnail strip under the main photo */
+.gal-thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.gal-thumb {
+  position: relative; display: block; height: 72px; padding: 0;
+  border: 1px solid var(--line-12); border-radius: var(--r-16);
+  background: var(--surface); overflow: hidden; cursor: pointer;
+  opacity: .62;
+  transition: opacity var(--dur-2) ease, border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
+}
+.gal-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gal-thumb:hover { opacity: 1; border-color: var(--line-24); }
+.gal-thumb[aria-current="true"] { opacity: 1; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+
+/* Side column — two stacked photos fill the height of main + strip */
+.gal-side-col { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.gal-side {
+  position: relative; flex: 1 1 0; min-height: 200px; min-width: 0; display: block; padding: 0;
+  border: 1px solid var(--line-08); border-radius: var(--r-24);
+  background: var(--surface); overflow: hidden; cursor: pointer;
+  transition: border-color var(--dur-2) ease;
+}
+.gal-side:hover { border-color: var(--line-24); }
+.gal-side:focus-visible { outline-offset: 2px; }
+.gal-side img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--dur-5) var(--ease-out);
+}
+.gal-side:hover img { transform: scale(1.04); }
+.gal-more {
+  position: absolute; inset: 0; width: 100%; padding: 0; border: 0; border-radius: inherit;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(5,7,12,.55); color: var(--heading); cursor: pointer;
+  transition: background-color var(--dur-2) ease;
+}
+.gal-more:hover { background: rgba(5,7,12,.38); }
+.gal-more:focus-visible { outline-offset: -6px; }
+html:not(.js) .gal-more { pointer-events: none; }
+
+
+/* Details grid
+   ========================================================================== */
+.vd-grid { align-items: start; row-gap: 48px; }
+.vd-main { display: flex; flex-direction: column; gap: 64px; min-width: 0; }
+.vd-measure { max-width: 720px; }
+.vd-inspect { border-radius: var(--r-32); padding: 32px; }
+.vd-bars { display: flex; flex-direction: column; gap: 20px; }
+.vd-bars .bar > span { will-change: transform; }
+.vd-history-tiles { margin-bottom: 32px; }
+
+/* Finance aside */
+.vd-aside { display: flex; flex-direction: column; gap: 16px; }
+.fin-card { border-radius: var(--r-32); padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+.fin-unit { font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.vd-trade { justify-content: center; width: 100%; }
+.vd-fine { font-weight: 500; }
+.vd-promise { border-radius: var(--r-24); padding: 24px; }
+
+
+/* Lightbox
+   ========================================================================== */
+.lb { position: fixed; inset: 0; z-index: 110; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.lb-backdrop {
+  position: absolute; inset: 0; background: rgba(5,7,12,.84);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.lb-panel {
+  position: relative; width: min(1120px, 100%); max-height: 100%;
+  border-radius: var(--r-32); padding: 20px 24px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+  background: linear-gradient(180deg, rgba(24,29,41,.92), rgba(10,14,23,.94));
+}
+.lb-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.lb-count { min-width: 48px; text-align: right; }
+.lb-stage { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; min-height: 0; }
+.lb-fig { margin: 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.lb-img {
+  width: auto; height: auto; max-width: 100%;
+  max-height: calc(100vh - 300px); max-height: calc(100dvh - 300px);
+  object-fit: contain; border-radius: var(--r-16);
+  background: var(--surface);
+}
+.lb-cap { text-align: center; }
+.lb-thumbs { display: flex; justify-content: center; gap: 8px; }
+.lb-thumbs .gal-thumb { width: 72px; height: 56px; border-radius: var(--r-12); }
+
+
+/* Toast
+   ========================================================================== */
+.toast-region {
+  position: fixed; left: 50%; bottom: 24px; z-index: 120;
+  width: min(480px, calc(100% - 32px)); transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 20px; border-radius: var(--r-16);
+  font: 600 14px/20px var(--font-text); color: var(--heading);
+  background: linear-gradient(180deg, rgba(30,36,50,.92), rgba(14,18,28,.94));
+}
+.toast svg { color: var(--accent); }
+
+
+/* Responsive — tablet ≤ 1023px
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .vh-price { align-items: flex-start; text-align: left; }
+  .gal-main { height: 440px; }
+  .gal-side { flex: 1 1 0; min-height: 0; height: 200px; }
+  .gal-side-col { gap: 16px; }
+  .vd-main { gap: 48px; }
+}
+
+/* Responsive — phone ≤ 767px (.main-pic sets the 320px height in styles.css)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .gal-bar { left: 16px; right: 16px; bottom: 16px; }
+  .gal-thumbs { gap: 8px; }
+  .gal-thumb { height: 56px; border-radius: var(--r-12); }
+  .gal-side { height: 160px; }
+  .vd-inspect { padding: 24px; }
+  .vd-main { gap: 40px; }
+
+  .lb { padding: 8px; }
+  .lb-panel { padding: 16px; border-radius: var(--r-24); }
+  .lb-stage { grid-template-columns: minmax(0, 1fr); }
+  .lb-nav { position: absolute; top: calc(50% - 40px); z-index: 1; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+  .lb-img { max-height: calc(100vh - 260px); max-height: calc(100dvh - 260px); }
+  .lb-thumbs .gal-thumb { width: 56px; height: 44px; }
+}
+@media (max-width: 520px) {
+  .gal-count { display: none; }
+  .gal-bar { justify-content: flex-end; }
+}

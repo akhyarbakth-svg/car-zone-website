@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inventory — Car Zone</title>
+<meta name="description" content="Browse inspected new and certified pre-owned cars at Car Zone Manchester. Filter by make, body type, price, year, fuel and transmission — every car with a full history and an upfront price.">
+<meta name="theme-color" content="#05070C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%238FD3FF'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='16' fill='%2304101C'%3ECZ%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.CZ)document.documentElement.classList.remove('js')},2500);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Urbanist:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/inventory.css">
+<script src="js/main.js" defer></script>
+<script src="js/inventory.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- ============ HEADER (shared — copy from README) ============ -->
+<header class="site-header">
+  <nav class="nav glass" aria-label="Main">
+    <a href="index.html" class="brand" aria-label="Car Zone home">
+      <span class="brand-mark" aria-hidden="true">CZ</span>
+      <span class="brand-name">Car Zone</span>
+    </a>
+    <div class="navlinks">
+      <a class="nav-link" href="inventory.html" aria-current="page">Inventory</a>
+      <a class="nav-link" href="inventory.html?sort=newest">New arrivals</a>
+      <a class="nav-link" href="financing.html">Financing</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="about.html">About</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:01614960742" class="navphone">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        0161 496 0742</a>
+      <a href="index.html#book" class="btn btn-primary navcta">Book a test drive</a>
+      <a href="#menu" class="menu-btn glass-soft" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="mnav" id="menu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <a href="#" class="mnav-backdrop" data-menu-close tabindex="-1" aria-hidden="true"></a>
+  <div class="mnav-panel glass">
+    <div class="mnav-top">
+      <a href="index.html" class="brand" aria-label="Car Zone home">
+        <span class="brand-mark" aria-hidden="true">CZ</span>
+        <span class="brand-name">Car Zone</span>
+      </a>
+      <a href="#" class="mnav-close btn-icon square glass-soft" data-menu-close aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </a>
+    </div>
+    <nav aria-label="Main (mobile)">
+      <ul class="mnav-links">
+        <li><a class="mnav-link" href="inventory.html" aria-current="page">Inventory <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="inventory.html?sort=newest">New arrivals <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="financing.html">Financing <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="services.html">Services <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="about.html">About <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="mnav-foot">
+      <a href="tel:01614960742" class="navphone">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        0161 496 0742</a>
+      <a href="index.html#book" class="btn btn-lg btn-primary">Book a test drive</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER ============ -->
+
+<main id="main">
+
+  <!-- PAGE HEADER · title 7 cols, search columns 8–12 -->
+  <section class="wrap page-hd" aria-labelledby="page-title">
+    <div class="orb" style="width: 560px; height: 360px; right: -120px; top: 40px; opacity: .14"></div>
+    <nav aria-label="Breadcrumb" class="crumbs">
+      <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Inventory</span>
+    </nav>
+    <div class="grid page-hd-grid">
+      <div class="s7">
+        <h1 id="page-title" class="t-page c-white" data-reveal>Find your next car</h1>
+        <p class="t-lead c-lead mt-16 measure" data-reveal data-delay="100"><span data-count="14">14</span> inspected cars across 8 brands — every one with a full history and a price that won't change at the desk.</p>
+      </div>
+      <form class="c8-12 inv-search" action="inventory.html" method="get" role="search" aria-label="Search inventory" data-reveal data-delay="160">
+        <label class="field input-icon">
+          <span class="sr-only">Search by make, model or keyword</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="inv-q" type="search" name="q" placeholder="Search make, model or keyword" autocomplete="off" enterkeyhint="search">
+        </label>
+      </form>
+    </div>
+  </section>
+
+  <!-- RESULTS · filters 3 cols, results 9 cols -->
+  <section class="wrap inv-section" aria-label="Inventory results">
+    <div class="orb orb-violet" style="width: 480px; height: 480px; left: -240px; top: 400px; opacity: .14; --orb-dur: 32s"></div>
+    <div class="grid rel items-start">
+
+      <div class="inv-scrim" id="inv-scrim" hidden></div>
+
+      <!-- Filters (desktop sidebar · tablet/phone slide-in drawer) -->
+      <aside class="s3 aside glass inv-aside" id="inv-filters" aria-label="Filters" data-requires-js>
+        <div class="row-between inv-aside-hd">
+          <h2 class="t-h4 c-white">Filters</h2>
+          <div class="row gap-8">
+            <button type="button" class="inv-link" data-reset>Reset all</button>
+            <button type="button" class="btn-icon sm square glass-soft inv-close" id="inv-close" aria-label="Close filters">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+          </div>
+        </div>
+
+        <div class="hairline-top">
+          <fieldset class="fieldset inv-makes" id="inv-makes">
+            <legend class="legend">Make</legend>
+            <label class="check"><input type="checkbox" name="make" value="aston-martin"> <span class="flex-1">Aston Martin</span><span class="t-small c-cap inv-num"><span data-make-count="aston-martin">2</span><span class="sr-only"> cars</span></span></label>
+            <label class="check"><input type="checkbox" name="make" value="bmw"> <span class="flex-1">BMW</span><span class="t-small c-cap inv-num"><span data-make-count="bmw">2</span><span class="sr-only"> cars</span></span></label>
+            <label class="check"><input type="checkbox" name="make" value="land-rover"> <span class="flex-1">Land Rover</span><span class="t-small c-cap inv-num"><span data-make-count="land-rover">3</span><span class="sr-only"> cars</span></span></label>
+            <label class="check"><input type="checkbox" name="make" value="lexus"> <span class="flex-1">Lexus</span><span class="t-small c-cap inv-num"><span data-make-count="lexus">2</span><span class="sr-only"> cars</span></span></label>
+            <label class="check"><input type="checkbox" name="make" value="porsche"> <span class="flex-1">Porsche</span><span class="t-small c-cap inv-num"><span data-make-count="porsche">2</span><span class="sr-only"> cars</span></span></label>
+            <label class="check"><input type="checkbox" name="make" value="tesla"> <span class="flex-1">Tesla</span><span class="t-small c-cap inv-num"><span data-make-count="tesla">1</span><span class="sr-only"> car</span></span></label>
+            <div class="inv-make-extra" id="inv-make-extra">
+              <label class="check"><input type="checkbox" name="make" value="dodge"> <span class="flex-1">Dodge</span><span class="t-small c-cap inv-num"><span data-make-count="dodge">1</span><span class="sr-only"> car</span></span></label>
+              <label class="check"><input type="checkbox" name="make" value="volkswagen"> <span class="flex-1">Volkswagen</span><span class="t-small c-cap inv-num"><span data-make-count="volkswagen">1</span><span class="sr-only"> car</span></span></label>
+            </div>
+            <button type="button" class="inv-link inv-link-text" id="inv-more" aria-expanded="false" aria-controls="inv-make-extra">Show all 8 makes</button>
+          </fieldset>
+        </div>
+
+        <div class="hairline-top">
+          <fieldset class="fieldset">
+            <legend class="legend">Body type</legend>
+            <div class="inv-chips">
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="body" data-value="suv">SUV</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="body" data-value="sedan">Sedan</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="body" data-value="coupe">Coupé</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="body" data-value="convertible">Convertible</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="body" data-value="pickup">Pickup</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="hairline-top">
+          <fieldset class="fieldset">
+            <legend class="legend">Price</legend>
+            <div class="row gap-8">
+              <label class="field flex-1">Min<input id="inv-min" type="text" inputmode="numeric" placeholder="£0" autocomplete="off"></label>
+              <label class="field flex-1">Max<input id="inv-max" type="text" inputmode="numeric" placeholder="No max" autocomplete="off"></label>
+            </div>
+            <input id="inv-range" class="mt-16" type="range" min="10000" max="200000" step="5000" value="200000" aria-label="Maximum price" aria-valuetext="No maximum">
+            <div class="row-between t-cap c-cap inv-range-scale" aria-hidden="true"><span>£10k</span><span>£200k+</span></div>
+          </fieldset>
+        </div>
+
+        <div class="hairline-top">
+          <fieldset class="fieldset">
+            <legend class="legend">Year</legend>
+            <div class="row gap-8">
+              <label class="field flex-1">From
+                <select id="inv-year-from">
+                  <option value="">Any</option>
+                  <option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2016</option><option>2015</option><option>2010</option><option>2005</option><option>2000</option><option>1990</option>
+                </select>
+              </label>
+              <label class="field flex-1">To
+                <select id="inv-year-to">
+                  <option value="">Any</option>
+                  <option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2016</option><option>2015</option><option>2010</option><option>2005</option><option>2000</option><option>1990</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="hairline-top">
+          <fieldset class="fieldset">
+            <legend class="legend">Fuel</legend>
+            <div class="inv-chips">
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="fuel" data-value="petrol">Petrol</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="fuel" data-value="diesel">Diesel</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="fuel" data-value="hybrid">Hybrid</button>
+              <button type="button" class="chip" aria-pressed="false" data-toggle data-filter="fuel" data-value="electric">Electric</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="hairline-top">
+          <fieldset class="fieldset">
+            <legend class="legend">Transmission</legend>
+            <div class="segmented" role="group" aria-label="Transmission" id="inv-trans" data-pressed-group>
+              <button type="button" class="seg" aria-pressed="true" data-value="any">Any</button>
+              <button type="button" class="seg" aria-pressed="false" data-value="auto">Auto</button>
+              <button type="button" class="seg" aria-pressed="false" data-value="manual">Manual</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="inv-apply">
+          <button type="button" class="btn btn-primary btn-block" id="inv-apply">Show <span id="inv-apply-count" class="tnum">14</span>&nbsp;<span id="inv-apply-unit">cars</span></button>
+        </div>
+      </aside>
+
+      <!-- Results -->
+      <div class="c4-12 inv-results">
+        <div class="inv-toolbar" data-reveal>
+          <div class="inv-summary">
+            <h2 id="inv-heading" class="t-h4 c-white inv-total" tabindex="-1"><span id="inv-count" class="tnum">14</span> <span id="inv-unit">cars</span></h2>
+            <ul class="inv-tags list-reset" id="inv-tags" aria-label="Active filters" hidden></ul>
+          </div>
+          <div class="inv-controls" data-requires-js>
+            <button type="button" class="btn btn-glass inv-open" id="inv-open" aria-controls="inv-filters" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10"/><path d="M18 6h2"/><circle cx="16" cy="6" r="2"/><path d="M4 12h4"/><path d="M12 12h8"/><circle cx="10" cy="12" r="2"/><path d="M4 18h10"/><path d="M18 18h2"/><circle cx="16" cy="18" r="2"/></svg>
+              Filters <span class="inv-badge" id="inv-badge" hidden>0</span></button>
+            <label class="field field-inline inv-sort">Sort by
+              <select id="inv-sort">
+                <option value="recommended">Recommended</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="newest">Newest first</option>
+                <option value="mileage">Lowest mileage</option>
+              </select>
+            </label>
+            <div class="segmented inv-view" role="group" aria-label="View">
+              <button type="button" class="seg seg-icon" aria-pressed="true" aria-label="Grid view" data-view="grid">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></button>
+              <button type="button" class="seg seg-icon" aria-pressed="false" aria-label="List view" data-view="list">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 6h12"/><path d="M8 12h12"/><path d="M8 18h12"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <p id="inv-status" class="sr-only" role="status" aria-live="polite"></p>
+
+        <ul class="g3 list-reset inv-grid" id="inv-grid" data-stagger="70">
+          <li class="inv-item" data-id="db11" data-make="aston-martin" data-body="coupe" data-fuel="petrol" data-trans="auto" data-model-year="2021" data-price="94950" data-miles="12800" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/aston-db11.jpg" width="1200" height="817" alt="Copper Aston Martin DB11 with both doors open" style="object-position: center 60%" decoding="async">
+                <span class="vcard-badge badge glass">New arrival</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Aston Martin DB11 V8 Coupé to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2021 · Aston Martin</p><h3 class="vcard-title">DB11 V8 Coupé</h3></div>
+                <p class="vcard-line">528 hp · 3.9 s · 12,800 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£94,950</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2021 Aston Martin DB11 V8 Coupé</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="gx460" data-make="lexus" data-body="suv" data-fuel="petrol" data-trans="auto" data-model-year="2023" data-price="64995" data-miles="8400" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/lexus-gx.jpg" width="1200" height="800" alt="Black Lexus GX 460 parked on a tree-lined drive" style="object-position: center 55%" decoding="async">
+                <span class="vcard-badge badge glass">Certified</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Lexus GX 460 Luxury to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2023 · Lexus</p><h3 class="vcard-title">GX 460 Luxury</h3></div>
+                <p class="vcard-line">301 hp · 7.7 s · 8,400 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£64,995</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2023 Lexus GX 460 Luxury</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="gt3" data-make="porsche" data-body="coupe" data-fuel="petrol" data-trans="auto" data-model-year="2022" data-price="164950" data-miles="6200" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/porsche-gt3.jpg" width="1200" height="800" alt="Black Porsche 911 GT3 at dusk with a rear wing" style="object-position: 60% center" decoding="async">
+                <span class="vcard-badge badge glass">Just in</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Porsche 911 GT3 to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2022 · Porsche</p><h3 class="vcard-title">911 GT3</h3></div>
+                <p class="vcard-line">503 hp · 3.2 s · 6,200 mi · PDK</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£164,950</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2022 Porsche 911 GT3</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="rrs-svr" data-make="land-rover" data-body="suv" data-fuel="petrol" data-trans="auto" data-model-year="2020" data-price="72995" data-miles="21400" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/range-rover-blue.jpg" width="1200" height="910" alt="Blue Range Rover Sport SVR parked outside a brick building" style="object-position: center 65%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Certified</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Range Rover Sport SVR to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2020 · Land Rover</p><h3 class="vcard-title">Range Rover Sport SVR</h3></div>
+                <p class="vcard-line">567 hp · 4.3 s · 21,400 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£72,995</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2020 Land Rover Range Rover Sport SVR</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="defender" data-make="land-rover" data-body="suv" data-fuel="diesel" data-trans="auto" data-model-year="2023" data-price="68450" data-miles="4900" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/defender.jpg" width="1200" height="675" alt="Grey Land Rover Defender in a dark studio" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Nearly new</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Land Rover Defender 110 X-Dynamic to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2023 · Land Rover</p><h3 class="vcard-title">Defender 110 X-Dynamic</h3></div>
+                <p class="vcard-line">296 hp · 7.0 s · 4,900 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£68,450</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2023 Land Rover Defender 110 X-Dynamic</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="model-s" data-make="tesla" data-body="sedan" data-fuel="electric" data-trans="auto" data-model-year="2019" data-price="34495" data-miles="38600" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/tesla-model-s.jpg" width="1200" height="800" alt="Blue Tesla Model S parked against a concrete wall" style="object-position: center 85%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Electric</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Tesla Model S Long Range to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2019 · Tesla</p><h3 class="vcard-title">Model S Long Range</h3></div>
+                <p class="vcard-line">417 hp · 4.2 s · 38,600 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£34,495</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2019 Tesla Model S Long Range</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="vanquish" data-make="aston-martin" data-body="convertible" data-fuel="petrol" data-trans="auto" data-model-year="2016" data-price="109995" data-miles="24100" data-condition="used">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/aston-vanquish.jpg" width="1200" height="800" alt="White Aston Martin Vanquish Volante with the roof down" style="object-position: 30% 70%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Convertible</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Aston Martin Vanquish Volante to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2016 · Aston Martin</p><h3 class="vcard-title">Vanquish Volante</h3></div>
+                <p class="vcard-line">568 hp · 3.6 s · 24,100 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£109,995</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2016 Aston Martin Vanquish Volante</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="430i" data-make="bmw" data-body="convertible" data-fuel="petrol" data-trans="auto" data-model-year="2021" data-price="38750" data-miles="18300" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/bmw-430i.jpg" width="1200" height="879" alt="Dark green BMW 4 Series convertible parked on a street" style="object-position: center 60%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Price drop</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save BMW 430i M Sport Convertible to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2021 · BMW</p><h3 class="vcard-title">430i M Sport Convertible</h3></div>
+                <p class="vcard-line">245 hp · 5.8 s · 18,300 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£38,750</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2021 BMW 430i M Sport Convertible</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="ram" data-make="dodge" data-body="pickup" data-fuel="petrol" data-trans="auto" data-model-year="2008" data-price="14995" data-miles="86200" data-condition="used">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/dodge-ram.jpg" width="1200" height="800" alt="Blue Dodge Ram pickup truck parked on grass" style="object-position: 35% 70%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Pickup</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Dodge Ram 1500 Laramie to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2008 · Dodge</p><h3 class="vcard-title">Ram 1500 Laramie</h3></div>
+                <p class="vcard-line">345 hp · 7.1 s · 86,200 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£14,995</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2008 Dodge Ram 1500 Laramie</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="rrs-p400e" data-make="land-rover" data-body="suv" data-fuel="hybrid" data-trans="auto" data-model-year="2022" data-price="58950" data-miles="14200" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/range-rover-white.jpg" width="1200" height="800" alt="White Range Rover Sport parked in front of autumn trees" style="object-position: center 60%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Plug-in hybrid</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Range Rover Sport P400e HSE Dynamic to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2022 · Land Rover</p><h3 class="vcard-title">Range Rover Sport P400e HSE Dynamic</h3></div>
+                <p class="vcard-line">398 hp · 6.3 s · 14,200 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£58,950</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2022 Land Rover Range Rover Sport P400e HSE Dynamic</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="is300h" data-make="lexus" data-body="sedan" data-fuel="hybrid" data-trans="auto" data-model-year="2024" data-price="41450" data-miles="1200" data-condition="new">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/lexus-is.jpg" width="1600" height="1067" alt="Grey Lexus IS saloon seen head-on in an empty car park" style="object-position: center 65%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">New</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Lexus IS 300h F Sport to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2024 · Lexus</p><h3 class="vcard-title">IS 300h F Sport</h3></div>
+                <p class="vcard-line">220 hp · 8.4 s · 1,200 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£41,450</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2024 Lexus IS 300h F Sport</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="964" data-make="porsche" data-body="coupe" data-fuel="petrol" data-trans="manual" data-model-year="1991" data-price="84950" data-miles="68400" data-condition="used">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/porsche-964.jpg" width="1200" height="801" alt="Black classic Porsche 911 of the 964 generation parked under a carport" style="object-position: center 60%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Classic</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Porsche 911 Carrera 2 (964) to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">1991 · Porsche</p><h3 class="vcard-title">911 Carrera 2 (964)</h3></div>
+                <p class="vcard-line">247 hp · 5.5 s · 68,400 mi · Manual</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£84,950</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 1991 Porsche 911 Carrera 2 (964)</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="540i" data-make="bmw" data-body="sedan" data-fuel="petrol" data-trans="auto" data-model-year="2020" data-price="32995" data-miles="29700" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/bmw-night.jpg" width="1200" height="2134" alt="Dark grey BMW 5 Series saloon with its headlights on at night" style="object-position: center 57%" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">Certified</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save BMW 540i M Sport to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2020 · BMW</p><h3 class="vcard-title">540i M Sport</h3></div>
+                <p class="vcard-line">335 hp · 4.9 s · 29,700 mi · Auto</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£32,995</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2020 BMW 540i M Sport</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="inv-item" data-id="tiguan" data-make="volkswagen" data-body="suv" data-fuel="diesel" data-trans="auto" data-model-year="2022" data-price="33450" data-miles="16800" data-condition="certified">
+            <article class="vcard vcard--compact glass lift" data-spotlight data-tilt="3">
+              <div class="vcard-media">
+                <img src="assets/img/hero-suv.jpg" width="2400" height="1350" alt="Grey Volkswagen Tiguan Allspace under a studio spotlight" style="object-position: 62% center" loading="lazy" decoding="async">
+                <span class="vcard-badge badge glass">7 seats</span>
+                <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Volkswagen Tiguan Allspace R-Line to shortlist" aria-pressed="false" data-toggle>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+              </div>
+              <div class="vcard-body">
+                <div><p class="vcard-meta">2022 · Volkswagen</p><h3 class="vcard-title">Tiguan Allspace R-Line</h3></div>
+                <p class="vcard-line">197 hp · 7.6 s · 16,800 mi · DSG</p>
+                <div class="vcard-foot">
+                  <div><div class="price-label">Price</div><div class="price t-price">£33,450</div></div>
+                  <a href="vehicle.html" class="btn btn-soft btn-sm">Details<span class="sr-only"> — 2022 Volkswagen Tiguan Allspace R-Line</span></a>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <div class="inv-empty glass-soft" id="inv-empty" hidden>
+          <span class="icon-tile icon-tile--lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8.5 11h5"/></svg></span>
+          <h3 class="t-h3 c-white">No cars match those filters</h3>
+          <p class="t-body c-muted measure">Try widening the price or year range, or remove a filter or two. Still nothing? We can source one for you.</p>
+          <div class="inv-empty-actions">
+            <button type="button" class="btn btn-primary" data-reset>Reset filters</button>
+            <a href="#sourcing" class="btn btn-glass">Request a car</a>
+          </div>
+        </div>
+
+        <nav class="inv-pager" aria-label="Pagination" data-requires-js>
+          <span class="t-small fw-600 c-muted" id="inv-range-label">Showing 1–9 of 14</span>
+          <div class="pager" id="inv-pager"></div>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCING CTA · panel spans 12 columns; copy 2–6, actions 8–11 -->
+  <section id="sourcing" class="wrap sec" aria-labelledby="source-title">
+    <div class="grid inset glass rel r-32 items-center inv-cta" data-reveal="scale">
+      <div class="orb" style="width: 440px; height: 320px; right: 6%; top: -80px; opacity: .22; --orb-dur: 24s"></div>
+      <div class="c2-6 rel">
+        <span class="eyebrow">Car sourcing</span>
+        <h2 id="source-title" class="t-sec c-white mt-16">Can't see the one you want?</h2>
+        <p class="t-lead c-lead mt-16">Tell us the make, spec and budget. We'll search our partner network and come back with options within 48 hours.</p>
+      </div>
+      <div class="c8-11 rel stack gap-12">
+        <a href="about.html#contact" class="btn btn-lg btn-primary" data-magnetic>Request a car
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <a href="tel:01614960742" class="btn btn-lg btn-glass">Call 0161 496 0742</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER (shared — copy from README) ============ -->
+<footer class="site-footer gridfx">
+  <div class="footer-panel glass">
+    <div class="wrap grid footer-grid">
+      <div class="s4 fb footer-brand">
+        <a href="index.html" class="brand" aria-label="Car Zone home">
+          <span class="brand-mark" aria-hidden="true">CZ</span>
+          <span class="brand-name">Car Zone</span>
+        </a>
+        <p class="t-body">New and certified pre-owned cars, financing and service — all in one showroom.</p>
+        <div class="footer-social">
+          <a href="#" class="glass-soft">Instagram</a>
+          <a href="#" class="glass-soft">YouTube</a>
+          <a href="#" class="glass-soft">Facebook</a>
+        </div>
+      </div>
+      <nav class="c7-8 footer-col" aria-label="Inventory">
+        <span class="footer-title">Inventory</span>
+        <a href="inventory.html?condition=new">New cars</a>
+        <a href="inventory.html?condition=certified">Certified pre-owned</a>
+        <a href="inventory.html?sort=newest">New arrivals</a>
+        <a href="inventory.html?fuel=electric">Electric</a>
+      </nav>
+      <nav class="c9-10 footer-col" aria-label="Services">
+        <span class="footer-title">Services</span>
+        <a href="financing.html">Financing</a>
+        <a href="services.html#trade-in">Trade-in</a>
+        <a href="services.html">Service &amp; care</a>
+        <a href="index.html#book">Test drive</a>
+      </nav>
+      <address class="c11-12 footer-col">
+        <span class="footer-title">Showroom</span>
+        <span>27 Kingsbridge Road<br>Manchester M14 6QR</span>
+        <a href="tel:01614960742">0161 496 0742</a>
+        <span>Mon–Sat 09:00–19:00<br>Sun 10:00–16:00</span>
+      </address>
+    </div>
+    <div class="wrap footer-bar">
+      <span>© <span data-year>2026</span> Car Zone. All rights reserved.</span>
+      <span class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></span>
+    </div>
+    <div class="wordmark" aria-hidden="true" data-wordmark>CAR ZONE</div>
+  </div>
+</footer>
+<!-- ============ /FOOTER ============ -->
+</body>
+</html>

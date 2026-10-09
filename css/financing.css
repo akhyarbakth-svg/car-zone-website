@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Car Zone — Financing page (loaded after styles.css)
+   ========================================================================== */
+
+/* Page header: CTA aligned right on desktop, left when it wraps under the copy */
+.fin-hd-cta { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
+
+.grid.fin-tiles { margin-top: 48px; }   /* beats .list-reset margin reset */
+/* Stat tiles: icon + two lines, left aligned */
+.fin-tile { border-radius: var(--r-24); padding: 24px; display: flex; gap: 16px; align-items: center; }
+
+/* ---------- Calculator ---------- */
+.fin-controls { border-radius: var(--r-32); padding: 40px; display: flex; flex-direction: column; gap: 32px; }
+.fin-range { gap: 12px; }
+.fin-range-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.fin-range-top output { display: inline; }
+.fin-range-ends { display: flex; justify-content: space-between; color: var(--caption); font-weight: 500; }
+
+/* Range slider — track is coloured up to the thumb via --fill (0 → 1, set by JS) */
+.range {
+  --thumb: 24px;
+  -webkit-appearance: none; appearance: none;
+  display: block; width: 100%; height: 28px; margin: 0;
+  background: transparent; cursor: pointer;
+  touch-action: pan-y;
+}
+.range::-webkit-slider-runnable-track {
+  height: 8px; border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--accent) 0, var(--accent) calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--fill, 0)), rgba(255,255,255,.14) calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--fill, 0)));
+}
+.range::-moz-range-track {
+  height: 8px; border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--accent) 0, var(--accent) calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--fill, 0)), rgba(255,255,255,.14) calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--fill, 0)));
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: var(--thumb); height: var(--thumb); margin-top: calc((8px - var(--thumb)) / 2);
+  border-radius: 50%; border: 0; background: #fff;
+  box-shadow: 0 0 0 4px rgba(143,211,255,.28), 0 4px 12px rgba(0,0,0,.5);
+  transition: box-shadow var(--dur-2) ease, transform var(--dur-2) var(--ease-out);
+}
+.range::-moz-range-thumb {
+  width: var(--thumb); height: var(--thumb); box-sizing: border-box;
+  border-radius: 50%; border: 0; background: #fff;
+  box-shadow: 0 0 0 4px rgba(143,211,255,.28), 0 4px 12px rgba(0,0,0,.5);
+  transition: box-shadow var(--dur-2) ease, transform var(--dur-2) var(--ease-out);
+}
+.range:hover::-webkit-slider-thumb, .range:active::-webkit-slider-thumb { box-shadow: 0 0 0 7px rgba(143,211,255,.3), 0 4px 12px rgba(0,0,0,.5); }
+.range:hover::-moz-range-thumb, .range:active::-moz-range-thumb { box-shadow: 0 0 0 7px rgba(143,211,255,.3), 0 4px 12px rgba(0,0,0,.5); }
+.range:focus-visible { outline: none; }
+.range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent), 0 4px 12px rgba(0,0,0,.5); }
+.range:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent), 0 4px 12px rgba(0,0,0,.5); }
+
+.seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.fin-result { border-radius: var(--r-32); padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+.fin-monthly {
+  font: 600 64px/64px var(--font-display); letter-spacing: -.035em; color: var(--accent);
+}
+.fin-monthly .unit { font-size: 20px; line-height: 28px; letter-spacing: 0; }
+.fin-result .breakdown > span { min-width: 0; }
+.fin-result .legend i { display: inline-block; }
+
+/* ---------- Ways to pay ---------- */
+.fin-plan { gap: 16px; }
+.fin-plan .icon-tile { margin-bottom: 0; }
+
+/* ---------- How it works: connecting progress line ---------- */
+.how-wrap { position: relative; padding-top: 40px; }
+.how-line, .how-steps > li::before { display: none; }
+
+@media (min-width: 1024px) {
+  .how-line {
+    display: block; position: absolute; top: 11px; left: 24px; height: 2px;
+    width: calc((100% + 24px) * .75);            /* first dot → last dot */
+    border-radius: var(--r-pill); background: var(--line-12);
+  }
+  .how-line > span {
+    display: block; height: 100%; border-radius: inherit; background: var(--accent);
+    transform-origin: left center;
+    transform: scaleX(1);
+    box-shadow: 0 0 12px rgba(143,211,255,.55);
+  }
+  .how-steps > li { position: relative; }
+  .how-steps > li::before {
+    content: ""; display: block; position: absolute; left: 24px; top: -36px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px rgba(143,211,255,.18);
+    transition: background-color var(--dur-3) ease, box-shadow var(--dur-3) ease, transform var(--dur-3) var(--ease-out);
+  }
+  /* With JS the line is scroll-driven: --p (0 → 1) from JS, dots light as it reaches them */
+  .how-wrap.is-live .how-line > span { transform: scaleX(var(--p, 0)); transition: transform 140ms linear; }
+  .how-wrap.is-live .how-steps > li::before { background: var(--bg); box-shadow: 0 0 0 2px var(--line-24); transform: scale(.75); }
+  .how-wrap.is-live .how-steps > li.is-on::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(143,211,255,.18), 0 0 16px rgba(143,211,255,.6); transform: none; }
+}
+/* Tablet / phone: no line, each step lights its border as it scrolls in */
+@media (max-width: 1023px) {
+  .how-wrap { padding-top: 0; }
+  .how-wrap.is-live .how-steps > li { transition: border-color var(--dur-3) ease, background-color var(--dur-3) ease; }
+  .how-wrap.is-live .how-steps > li.is-on { border-color: rgba(143,211,255,.42); background: rgba(143,211,255,.06); }
+}
+
+/* ---------- Pre-approval ---------- */
+.fin-apply { overflow: hidden; align-items: center; row-gap: 32px; }
+.fin-broker { max-width: 880px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  .fin-hd-cta { justify-content: flex-start; }
+}
+@media (max-width: 767px) {
+  .fin-controls { padding: 24px; gap: 28px; }
+  .fin-result { padding: 24px; }
+  .fin-monthly { font-size: 56px; line-height: 56px; }
+  .fin-tile { padding: 20px; }
+  .seg { padding: 0 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .range::-webkit-slider-thumb, .range::-moz-range-thumb { transition: none; }
+  .how-wrap.is-live .how-line > span { transition: none; }
+}

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car Zone — New &amp; certified pre-owned cars in Manchester</title>
+<meta name="description" content="Hand-picked performance, luxury and everyday cars in Manchester — every car inspected, fairly priced and ready for the road. Browse stock, get pre-approved and book a test drive.">
+<meta name="theme-color" content="#05070C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%238FD3FF'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='16' fill='%2304101C'%3ECZ%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.CZ)document.documentElement.classList.remove('js')},2500);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Urbanist:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/home.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- ============ HEADER (shared — copy from README) ============ -->
+<header class="site-header">
+  <nav class="nav glass" aria-label="Main">
+    <a href="index.html" class="brand" aria-label="Car Zone home">
+      <span class="brand-mark" aria-hidden="true">CZ</span>
+      <span class="brand-name">Car Zone</span>
+    </a>
+    <div class="navlinks">
+      <a class="nav-link" href="inventory.html">Inventory</a>
+      <a class="nav-link" href="inventory.html?sort=newest">New arrivals</a>
+      <a class="nav-link" href="financing.html">Financing</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="about.html">About</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:01614960742" class="navphone">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        0161 496 0742</a>
+      <a href="index.html#book" class="btn btn-primary navcta">Book a test drive</a>
+      <a href="#menu" class="menu-btn glass-soft" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="mnav" id="menu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <a href="#" class="mnav-backdrop" data-menu-close tabindex="-1" aria-hidden="true"></a>
+  <div class="mnav-panel glass">
+    <div class="mnav-top">
+      <a href="index.html" class="brand" aria-label="Car Zone home">
+        <span class="brand-mark" aria-hidden="true">CZ</span>
+        <span class="brand-name">Car Zone</span>
+      </a>
+      <a href="#" class="mnav-close btn-icon square glass-soft" data-menu-close aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </a>
+    </div>
+    <nav aria-label="Main (mobile)">
+      <ul class="mnav-links">
+        <li><a class="mnav-link" href="inventory.html">Inventory <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="inventory.html?sort=newest">New arrivals <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="financing.html">Financing <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="services.html">Services <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+        <li><a class="mnav-link" href="about.html">About <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></li>
+      </ul>
+    </nav>
+    <div class="mnav-foot">
+      <a href="tel:01614960742" class="navphone">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        0161 496 0742</a>
+      <a href="index.html#book" class="btn btn-lg btn-primary">Book a test drive</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER ============ -->
+
+<main id="main">
+
+  <!-- HERO · full-bleed panel (16px), content on the 12-column grid -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-panel">
+      <div class="hero-media" data-parallax="0.1">
+        <img class="hero-img" src="assets/img/hero-suv.jpg" width="2400" height="1350" alt="Dark grey SUV with headlights on under a studio spotlight" fetchpriority="high" decoding="async">
+      </div>
+      <div class="orb" style="width: 640px; height: 360px; right: 8%; top: 8%; opacity: .12"></div>
+      <div class="hero-shade-x"></div>
+      <div class="hero-shade-y"></div>
+
+      <div class="wrap hero-pad">
+        <div class="grid">
+          <div class="s7 hero-copy">
+            <span class="status-pill glass-soft" data-reveal data-delay="0"><span class="dot"></span>New &amp; certified pre-owned · Manchester</span>
+            <h1 id="hero-title" class="t-display c-white mt-24" data-split data-delay="120">Drive beyond <span class="c-accent">ordinary.</span></h1>
+            <p class="t-lead c-lead mt-24 hero-lead" data-reveal data-delay="420">Hand-picked performance, luxury and everyday cars — inspected, fairly priced and ready for the road. Find the one that fits you at Car Zone.</p>
+            <div class="hero-ctas" data-stagger data-delay="520" data-stagger-type="up">
+              <a href="inventory.html" class="btn btn-lg btn-primary" data-magnetic>Explore inventory
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+              <a href="#book" class="btn btn-lg btn-glass">Book a test drive</a>
+            </div>
+          </div>
+        </div>
+        <ul class="grid list-reset hero-stats" aria-label="Car Zone in numbers" data-stagger="70" data-delay="650">
+          <li class="s3 st stat glass">
+            <div class="t-num stat-num"><span data-count="250">250</span><span class="c-accent">+</span></div>
+            <div class="stat-label">Cars in stock</div>
+          </li>
+          <li class="s3 st stat glass">
+            <div class="t-num stat-num"><span data-count="18">18</span></div>
+            <div class="stat-label">Brands under one roof</div>
+          </li>
+          <li class="s3 st stat glass">
+            <div class="t-num stat-num"><span data-count="12">12</span><span class="unit"> yrs</span></div>
+            <div class="stat-label">In business</div>
+          </li>
+          <li class="s3 st stat glass">
+            <div class="t-num stat-num"><span data-count="4.8">4.8</span><span class="unit"> / 5</span></div>
+            <div class="stat-label">Customer rating</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH · 32px from hero (same task group) -->
+  <section class="wrap search-sec" aria-label="Search inventory">
+    <form class="search-form glass" action="inventory.html" method="get" role="search" data-reveal data-delay="200">
+      <label class="field f-make">Make &amp; model
+        <select name="make">
+          <option value="">Any make</option>
+          <option value="aston-martin">Aston Martin</option>
+          <option value="bmw">BMW</option>
+          <option value="dodge">Dodge</option>
+          <option value="land-rover">Land Rover</option>
+          <option value="lexus">Lexus</option>
+          <option value="porsche">Porsche</option>
+          <option value="tesla">Tesla</option>
+        </select>
+      </label>
+      <label class="field f-std">Body type
+        <select name="body">
+          <option value="">All types</option>
+          <option value="suv">SUV</option>
+          <option value="sedan">Sedan</option>
+          <option value="coupe">Coupé</option>
+          <option value="convertible">Convertible</option>
+          <option value="electric">Electric</option>
+          <option value="pickup">Pickup</option>
+        </select>
+      </label>
+      <label class="field f-std">Max price
+        <select name="max">
+          <option value="">No limit</option>
+          <option value="20000">£20,000</option>
+          <option value="40000">£40,000</option>
+          <option value="60000">£60,000</option>
+          <option value="80000">£80,000</option>
+          <option value="100000">£100,000</option>
+        </select>
+      </label>
+      <label class="field f-std">Year from
+        <select name="year">
+          <option value="">Any year</option>
+          <option value="2024">2024</option>
+          <option value="2022">2022</option>
+          <option value="2020">2020</option>
+          <option value="2018">2018</option>
+          <option value="2015">2015</option>
+        </select>
+      </label>
+      <button type="submit" class="btn btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        Search 250 cars</button>
+    </form>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="wrap sec" aria-labelledby="featured-title">
+    <div class="orb" style="width: 520px; height: 520px; left: -280px; top: 320px; opacity: .13"></div>
+    <div class="orb orb-violet" style="width: 464px; height: 464px; right: -240px; top: 480px; opacity: .16; --orb-dur: 34s; --orb-delay: -8s"></div>
+    <div class="grid hd rel items-end">
+      <div class="s6 heading" data-reveal>
+        <span class="eyebrow">Inventory</span>
+        <h2 id="featured-title" class="t-h2 c-white">Featured vehicles</h2>
+      </div>
+      <div class="c7-12 featured-filter" data-requires-js data-reveal data-delay="120">
+        <div class="segmented segmented-lg" role="group" aria-label="Filter featured vehicles by body type"
+             data-pressed-group data-filter-group data-filter-target="#featured-grid" data-filter-status="#featured-status">
+          <button type="button" class="seg seg-lg" aria-pressed="true" data-value="all">All</button>
+          <button type="button" class="seg seg-lg" aria-pressed="false" data-value="suv">SUV</button>
+          <button type="button" class="seg seg-lg" aria-pressed="false" data-value="sedan">Sedan</button>
+          <button type="button" class="seg seg-lg" aria-pressed="false" data-value="coupe">Coupé</button>
+          <button type="button" class="seg seg-lg" aria-pressed="false" data-value="electric">Electric</button>
+        </div>
+      </div>
+    </div>
+    <p id="featured-status" class="sr-only" aria-live="polite"></p>
+
+    <div id="featured-grid" class="grid rel" data-stagger="80">
+      <article class="s4 vcard glass lift" data-tags="coupe" data-spotlight data-tilt>
+        <div class="vcard-media">
+          <img src="assets/img/aston-db11.jpg" width="1200" height="817" alt="Copper Aston Martin DB11 with both doors open" style="object-position: center 60%" loading="lazy" decoding="async">
+          <span class="vcard-badge badge glass">New arrival</span>
+          <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Aston Martin DB11 to shortlist" aria-pressed="false" data-toggle>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+        </div>
+        <div class="vcard-body">
+          <div>
+            <p class="vcard-meta">2021 · Aston Martin DB11 V8</p>
+            <h3 class="vcard-title t-h3">Grand Tourer Coupé</h3>
+          </div>
+          <dl class="vcard-specs">
+            <div class="glass-soft"><dt>Power</dt><dd>528 hp</dd></div>
+            <div class="glass-soft"><dt>0–60 mph</dt><dd>3.9 s</dd></div>
+            <div class="glass-soft"><dt>Mileage</dt><dd>12,800 mi</dd></div>
+          </dl>
+          <div class="vcard-foot">
+            <div>
+              <div class="price-label">Price</div>
+              <div class="price t-price">£94,950</div>
+            </div>
+            <a href="vehicle.html" class="btn btn-soft" style="padding: 0 20px">Details<span class="sr-only"> — Aston Martin DB11 V8</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="s4 vcard glass lift" data-tags="suv" data-spotlight data-tilt>
+        <div class="vcard-media">
+          <img src="assets/img/lexus-gx.jpg" width="1200" height="800" alt="Black Lexus GX 460 parked on a tree-lined drive" style="object-position: center 55%" loading="lazy" decoding="async">
+          <span class="vcard-badge badge glass">Certified</span>
+          <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Lexus GX 460 to shortlist" aria-pressed="false" data-toggle>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+        </div>
+        <div class="vcard-body">
+          <div>
+            <p class="vcard-meta">2023 · Lexus GX 460</p>
+            <h3 class="vcard-title t-h3">Luxury Performance SUV</h3>
+          </div>
+          <dl class="vcard-specs">
+            <div class="glass-soft"><dt>Power</dt><dd>301 hp</dd></div>
+            <div class="glass-soft"><dt>0–60 mph</dt><dd>7.7 s</dd></div>
+            <div class="glass-soft"><dt>Mileage</dt><dd>8,400 mi</dd></div>
+          </dl>
+          <div class="vcard-foot">
+            <div>
+              <div class="price-label">Price</div>
+              <div class="price t-price">£64,995</div>
+            </div>
+            <a href="vehicle.html" class="btn btn-soft" style="padding: 0 20px">Details<span class="sr-only"> — Lexus GX 460</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="s4 vcard glass lift" data-tags="sedan electric" data-spotlight data-tilt>
+        <div class="vcard-media">
+          <img src="assets/img/tesla-model-s.jpg" width="1200" height="800" alt="Blue Tesla Model S parked against a concrete wall" style="object-position: center 85%" loading="lazy" decoding="async">
+          <span class="vcard-badge badge glass">Electric</span>
+          <button type="button" class="vcard-save btn-icon sm glass" aria-label="Save Tesla Model S to shortlist" aria-pressed="false" data-toggle>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="heart" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+        </div>
+        <div class="vcard-body">
+          <div>
+            <p class="vcard-meta">2019 · Tesla Model S</p>
+            <h3 class="vcard-title t-h3">Electric Sport Sedan</h3>
+          </div>
+          <dl class="vcard-specs">
+            <div class="glass-soft"><dt>Power</dt><dd>417 hp</dd></div>
+            <div class="glass-soft"><dt>0–60 mph</dt><dd>4.2 s</dd></div>
+            <div class="glass-soft"><dt>Mileage</dt><dd>38,600 mi</dd></div>
+          </dl>
+          <div class="vcard-foot">
+            <div>
+              <div class="price-label">Price</div>
+              <div class="price t-price">£34,495</div>
+            </div>
+            <a href="vehicle.html" class="btn btn-soft" style="padding: 0 20px">Details<span class="sr-only"> — Tesla Model S</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <p class="featured-empty glass-soft" data-filter-empty hidden>No featured cars of this type right now — <a href="inventory.html" class="link-accent">browse the full inventory</a>.</p>
+    </div>
+
+    <div class="rel mt-48" style="display: flex; justify-content: center" data-reveal>
+      <a href="inventory.html" class="btn btn-pill">View all 250 vehicles
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <!-- BODY TYPES · 96px — a sub-group of inventory -->
+  <section class="wrap sec-sub" aria-labelledby="body-title">
+    <div class="row-between mb-24" style="align-items: baseline" data-reveal>
+      <h2 id="body-title" class="t-h3 c-white">Browse by body type</h2>
+      <span class="t-small fw-600 c-muted">Stock updated daily</span>
+    </div>
+    <ul class="grid list-reset" data-stagger>
+      <li class="s2">
+        <a href="inventory.html?body=suv" class="tile-link glass lift" data-spotlight>
+          <span class="tile-link-top">
+            <span class="icon-tile icon-tile--md"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+            <svg class="tile-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+          <span><span class="t-h4 c-white block">SUV</span><span class="t-small fw-500 c-muted block">74 in stock</span></span>
+        </a>
+      </li>
+      <li class="s2">
+        <a href="inventory.html?body=sedan" class="tile-link glass lift" data-spotlight>
+          <span class="tile-link-top">
+            <span class="icon-tile icon-tile--md"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+            <svg class="tile-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+          <span><span class="t-h4 c-white block">Sedan</span><span class="t-small fw-500 c-muted block">58 in stock</span></span>
+        </a>
+      </li>
+      <li class="s2">
+        <a href="inventory.html?body=coupe" class="tile-link glass lift" data-spotlight>
+          <span class="tile-link-top">
+            <span class="icon-tile icon-tile--md"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+            <svg class="tile-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+          <span><span class="t-h4 c-white block">Coupé</span><span class="t-small fw-500 c-muted block">36 in stock</span></span>
+        </a>
+      </li>
+      <li class="s2">
+        <a href="inventory.html?body=convertible" class="tile-link glass lift" data-spotlight>
+          <span class="tile-link-top">
+            <span class="icon-tile icon-tile--md"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+            <svg class="tile-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+          <span><span class="t-h4 c-white block">Convertible</span><span class="t-small fw-500 c-muted block">19 in stock</span></span>
+        </a>
+      </li>
+      <li class="s2">
+        <a href="inventory.html?body=electric" class="tile-link glass lift" data-spotlight>
+          <span class="tile-link-top">
+            <span class="icon-tile icon-tile--md"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+            <svg class="tile-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+          <span><span class="t-h4 c-white block">Electric</span><span class="t-small fw-500 c-muted block">41 in stock</span></span>
+        </a>
+      </li>
+      <li class="s2">
+        <a href="inventory.html?body=pickup" class="tile-link glass lift" data-spotlight>
+          <span class="tile-link-top">
+            <span class="icon-tile icon-tile--md"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+            <svg class="tile-link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+          <span><span class="t-h4 c-white block">Pickup</span><span class="t-small fw-500 c-muted block">22 in stock</span></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- WHY · image 6 cols, column 7 left open as breathing room, copy 5 cols -->
+  <section class="wrap sec" aria-labelledby="why-title">
+    <div class="orb" style="width: 560px; height: 560px; left: 8%; top: 240px; opacity: .12; --orb-dur: 30s"></div>
+    <div class="grid rel items-center" style="row-gap: 48px">
+      <div class="s6 rel">
+        <img class="photo why-img tall-pic" data-reveal="image" src="assets/img/bmw-night.jpg" width="1200" height="2134" alt="Dark grey BMW saloon with its headlights on, parked at night" loading="lazy" decoding="async">
+        <div class="overlay-card glass" data-reveal data-delay="350">
+          <span class="icon-accent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div>
+            <div class="t-h4 c-white">150-point inspection passed</div>
+            <div class="t-small c-lead">Every car, before it reaches the floor</div>
+          </div>
+        </div>
+      </div>
+      <div class="c8-12 stack">
+        <div data-reveal>
+          <span class="eyebrow">Why Car Zone</span>
+          <h2 id="why-title" class="t-h2 c-white mt-16">Every car inspected. Every price upfront.</h2>
+          <p class="t-lead c-lead mt-24">No pressure, no hidden fees. We check every vehicle before it reaches the floor, so you can choose with confidence.</p>
+        </div>
+        <ol class="list-reset stack gap-8 mt-40" data-stagger="70">
+          <li class="reason glass-soft">
+            <span class="idx">01</span>
+            <span><span class="t-h4 c-white block">150-point inspection</span><span class="t-small c-muted block mt-4">Mechanical, electrical and body checks on every car we sell.</span></span>
+          </li>
+          <li class="reason glass-soft">
+            <span class="idx">02</span>
+            <span><span class="t-h4 c-white block">Transparent pricing</span><span class="t-small c-muted block mt-4">The price you see is the price you pay — fees listed upfront.</span></span>
+          </li>
+          <li class="reason glass-soft">
+            <span class="idx">03</span>
+            <span><span class="t-h4 c-white block">Full vehicle history</span><span class="t-small c-muted block mt-4">Service records and ownership history shared before you sign.</span></span>
+          </li>
+          <li class="reason glass-soft">
+            <span class="idx">04</span>
+            <span><span class="t-h4 c-white block">Fair trade-in value</span><span class="t-small c-muted block mt-4">Get an offer on your current car the same day.</span></span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES · 4 × 3-column cards -->
+  <section class="wrap sec" aria-labelledby="services-title">
+    <div class="orb orb-violet" style="width: 480px; height: 480px; right: -200px; top: 240px; opacity: .15; --orb-dur: 32s; --orb-delay: -12s"></div>
+    <div class="grid hd rel items-end" data-reveal>
+      <div class="s6 heading">
+        <span class="eyebrow">Services</span>
+        <h2 id="services-title" class="t-h2 c-white">Everything under one roof</h2>
+      </div>
+      <p class="c9-12 t-lead c-lead">From your first test drive to your hundredth service, one team looks after you and your car.</p>
+    </div>
+    <div class="grid rel" data-stagger="70">
+      <article class="s3 svc-card glass lift" data-spotlight>
+        <span class="icon-tile icon-tile--xl">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1a1 1 0 0 1 1 1v4h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></span>
+        <h3 class="t-h3 c-white">Buy a car</h3>
+        <p class="t-body">New and certified pre-owned cars, inspected and ready to drive away.</p>
+        <a href="inventory.html" class="link-arrow">Browse stock <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </article>
+      <article class="s3 svc-card glass lift" data-spotlight>
+        <span class="icon-tile icon-tile--xl">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3l4 4-4 4"/><path d="M21 7H8"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h13"/></svg></span>
+        <h3 class="t-h3 c-white">Sell or trade in</h3>
+        <p class="t-body">Bring your car in for a free valuation and a same-day offer.</p>
+        <a href="services.html#trade-in" class="link-arrow">Get a valuation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </article>
+      <article class="s3 svc-card glass lift" data-spotlight>
+        <span class="icon-tile icon-tile--xl">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="M7 15h3"/></svg></span>
+        <h3 class="t-h3 c-white">Financing</h3>
+        <p class="t-body">Flexible plans from trusted lenders, with pre-approval in minutes.</p>
+        <a href="financing.html" class="link-arrow">See options <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </article>
+      <article class="s3 svc-card glass lift" data-spotlight>
+        <span class="icon-tile icon-tile--xl">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 6.3-6.3"/><path d="M14.7 6.3 9 12"/><path d="M3 21l6-6"/><path d="M14.7 6.3a4 4 0 0 1 3.6-3.2l-2 2.4.6 1.9 1.9.6 2.4-2a4 4 0 0 1-3.2 3.6"/></svg></span>
+        <h3 class="t-h3 c-white">Service &amp; care</h3>
+        <p class="t-body">Certified technicians, genuine parts and quick turnaround.</p>
+        <a href="services.html#book-service" class="link-arrow">Book service <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- FINANCING · panel spans 12 columns; content inset to columns 2–6 and 8–11 -->
+  <section class="wrap sec" aria-labelledby="finance-title">
+    <div class="grid inset panel items-center" style="row-gap: 48px" data-reveal="scale">
+      <div class="orb" style="width: 520px; height: 384px; right: 4%; top: 8%; opacity: .28; --orb-dur: 22s"></div>
+      <div class="orb orb-violet" style="width: 384px; height: 384px; right: 28%; bottom: -128px; opacity: .3; --orb-dur: 26s; --orb-delay: -6s"></div>
+      <div class="c2-6 stack-start rel">
+        <span class="eyebrow">Financing</span>
+        <h2 id="finance-title" class="t-h2 c-white mt-16">Own it on your terms.</h2>
+        <p class="t-lead c-lead mt-24">Choose your deposit and term, see your monthly payment, and get pre-approved before you visit — no impact on your credit score to check.</p>
+        <a href="financing.html#apply" class="btn btn-lg btn-primary mt-40" data-magnetic>Get pre-approved
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </div>
+      <div class="c8-11 glass rel r-24 p-24" data-spotlight>
+        <div class="row-between mb-8">
+          <h3 class="t-h4 c-white">Payment estimate</h3>
+          <span class="pill-label glass-soft">Lexus GX 460</span>
+        </div>
+        <dl class="kv t-body">
+          <div><dt>Vehicle price</dt><dd>£64,995</dd></div>
+          <div><dt>Down payment</dt><dd>£10,000</dd></div>
+          <div><dt>Term</dt><dd>48 months</dd></div>
+          <div><dt>Rate (APR)</dt><dd>6.9%</dd></div>
+        </dl>
+        <div class="estimate-total glass-soft">
+          <span class="t-small fw-600 c-label">Est. monthly</span>
+          <span class="t-big"><span data-count="1314" data-prefix="£">£1,314</span><span class="unit">/mo</span></span>
+        </div>
+        <p class="form-note mt-16">Estimate only. Final terms subject to credit approval.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS · quote set on columns 2–11 for a comfortable line length -->
+  <section class="wrap sec" aria-labelledby="reviews-title">
+    <h2 id="reviews-title" class="sr-only">Customer reviews</h2>
+    <div class="orb" style="width: 416px; height: 296px; left: 20%; top: 160px; opacity: .14; --orb-dur: 24s"></div>
+    <div class="grid inset glass rel r-32" style="row-gap: 32px" role="region" aria-roledescription="carousel" aria-labelledby="reviews-title" data-slider data-reveal>
+      <svg class="c2-11 c-accent" width="56" height="44" viewBox="0 0 56 44" fill="none" aria-hidden="true"><path d="M0 44V26C0 11 7 3 22 0l3 6c-8 3-12 8-12 16h10v22H0zm31 0V26c0-15 7-23 22-26l3 6c-8 3-12 8-12 16h10v22H31z" fill="currentColor"/></svg>
+      <div class="c2-11 rv">
+        <div class="rv-stage" aria-live="polite">
+          <figure class="rv-slide is-active" data-slide role="group" aria-roledescription="slide" aria-label="1 of 5">
+            <blockquote class="rv-quote t-quote">[A short customer quote about their buying experience — pulled from a real review, two lines max.]</blockquote>
+            <figcaption class="rv-person">
+              <img class="rv-avatar" src="assets/img/avatar-review.jpg" width="192" height="192" alt="" style="object-position: 55% 30%" loading="lazy" decoding="async">
+              <span><span class="t-h4 c-white block">Oliver Hartley</span><span class="t-small c-muted block">Drove home a Range Rover Velar</span></span>
+            </figcaption>
+          </figure>
+          <figure class="rv-slide" data-slide role="group" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true">
+            <blockquote class="rv-quote t-quote">[A review about trading in — a fair valuation, a same-day offer and no haggling at the desk.]</blockquote>
+            <figcaption class="rv-person">
+              <span class="rv-avatar rv-initials" aria-hidden="true">PD</span>
+              <span><span class="t-h4 c-white block">Priya Desai</span><span class="t-small c-muted block">Part-exchanged for a Tesla Model S</span></span>
+            </figcaption>
+          </figure>
+          <figure class="rv-slide" data-slide role="group" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true">
+            <blockquote class="rv-quote t-quote">[A review about financing — a clear monthly figure, quick pre-approval and nothing hidden.]</blockquote>
+            <figcaption class="rv-person">
+              <span class="rv-avatar rv-initials" aria-hidden="true">JW</span>
+              <span><span class="t-h4 c-white block">James Whitfield</span><span class="t-small c-muted block">Financed a Lexus GX 460</span></span>
+            </figcaption>
+          </figure>
+          <figure class="rv-slide" data-slide role="group" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true">
+            <blockquote class="rv-quote t-quote">[A review about the workshop — serviced on time, video health check, fair price.]</blockquote>
+            <figcaption class="rv-person">
+              <span class="rv-avatar rv-initials" aria-hidden="true">AO</span>
+              <span><span class="t-h4 c-white block">Amara Okafor</span><span class="t-small c-muted block">Services her Defender with us</span></span>
+            </figcaption>
+          </figure>
+          <figure class="rv-slide" data-slide role="group" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true">
+            <blockquote class="rv-quote t-quote">[A review about the test drive — car ready at the door, honest advice, zero pressure.]</blockquote>
+            <figcaption class="rv-person">
+              <span class="rv-avatar rv-initials" aria-hidden="true">TB</span>
+              <span><span class="t-h4 c-white block">Tom Brennan</span><span class="t-small c-muted block">Test-drove and bought a Porsche 911 GT3</span></span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="rv-controls" data-requires-js>
+          <span class="rv-count" data-slide-count>01 / 05</span>
+          <button type="button" class="btn-icon glass-soft" aria-label="Previous review" data-slide-prev>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>
+          <button type="button" class="btn-icon btn-primary" aria-label="Next review" data-slide-next>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK · copy 5 cols, column 6 open, form 6 cols -->
+  <section id="book" class="wrap sec" aria-labelledby="book-title">
+    <div class="orb orb-violet" style="width: 520px; height: 520px; right: -200px; top: 200px; opacity: .18; --orb-dur: 30s"></div>
+    <div class="orb" style="width: 400px; height: 400px; right: 20%; top: 520px; opacity: .14; --orb-dur: 26s; --orb-delay: -10s"></div>
+    <div class="grid rel items-start" style="row-gap: 48px">
+      <div class="s5 stack">
+        <div data-reveal>
+          <span class="eyebrow">Visit the showroom</span>
+          <h2 id="book-title" class="t-h2 c-white mt-16">Book a test drive</h2>
+          <p class="t-lead c-lead mt-24">Pick a car and a time — we'll have it washed, fuelled and waiting at the door.</p>
+        </div>
+        <dl class="g2 mt-40" style="gap: 8px" data-stagger>
+          <div class="info-tile glass-soft"><dt>Address</dt><dd>27 Kingsbridge Road,<br>Manchester M14 6QR</dd></div>
+          <div class="info-tile glass-soft"><dt>Hours</dt><dd>Mon–Sat 09:00–19:00<br>Sun 10:00–16:00</dd></div>
+          <div class="info-tile glass-soft"><dt>Phone</dt><dd><a href="tel:01614960742">0161 496 0742</a></dd></div>
+          <div class="info-tile glass-soft"><dt>Email</dt><dd class="break-any"><a href="mailto:hello@carzonemcr.co.uk">hello@carzonemcr.co.uk</a></dd></div>
+        </dl>
+        <img class="photo photo-24 map-img" data-reveal="image" src="assets/img/map-zoom.jpg" width="972" height="418" alt="Map of south Manchester with a pin on 27 Kingsbridge Road, between Rusholme, Fallowfield and Platt Fields Park" loading="lazy" decoding="async">
+      </div>
+      <form class="c7-12 glass r-32 p-40 stack gap-24" action="#book" method="post" aria-labelledby="form-title" data-demo-form data-reveal="right">
+        <div>
+          <h3 id="form-title" class="t-h3 c-white">Request a time</h3>
+          <p class="t-small c-muted mt-4">We'll confirm within one business day.</p>
+        </div>
+        <label class="field">Full name<input type="text" name="name" autocomplete="name" placeholder="Your name" required></label>
+        <div class="field-row">
+          <label class="field">Phone<input type="tel" name="phone" autocomplete="tel" placeholder="Phone number" required></label>
+          <label class="field">Email<input type="email" name="email" autocomplete="email" placeholder="you@email.com" required></label>
+        </div>
+        <div class="field-row">
+          <label class="field">Vehicle
+            <select name="vehicle" required>
+              <option value="">Choose a car</option>
+              <option>2021 Aston Martin DB11 V8</option>
+              <option>2023 Lexus GX 460</option>
+              <option>2019 Tesla Model S</option>
+              <option>Something else in stock</option>
+            </select>
+          </label>
+          <label class="field">Preferred date<input type="date" name="date" required data-min-today></label>
+        </div>
+        <label class="field"><span>Anything else? <span class="optional">(optional)</span></span><textarea name="message" placeholder="Trade-in, financing questions…"></textarea></label>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" data-magnetic="4">Request test drive
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+        <div class="form-status" role="status" tabindex="-1" data-form-success hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Thanks — your request is in. We'll confirm your test drive within one business day.</span>
+        </div>
+        <p class="form-note">By submitting you agree to be contacted about your request. See our <a href="#">privacy policy</a>.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER (shared — copy from README) ============ -->
+<footer class="site-footer gridfx">
+  <div class="footer-panel glass">
+    <div class="wrap grid footer-grid">
+      <div class="s4 fb footer-brand">
+        <a href="index.html" class="brand" aria-label="Car Zone home">
+          <span class="brand-mark" aria-hidden="true">CZ</span>
+          <span class="brand-name">Car Zone</span>
+        </a>
+        <p class="t-body">New and certified pre-owned cars, financing and service — all in one showroom.</p>
+        <div class="footer-social">
+          <a href="#" class="glass-soft">Instagram</a>
+          <a href="#" class="glass-soft">YouTube</a>
+          <a href="#" class="glass-soft">Facebook</a>
+        </div>
+      </div>
+      <nav class="c7-8 footer-col" aria-label="Inventory">
+        <span class="footer-title">Inventory</span>
+        <a href="inventory.html?condition=new">New cars</a>
+        <a href="inventory.html?condition=certified">Certified pre-owned</a>
+        <a href="inventory.html?sort=newest">New arrivals</a>
+        <a href="inventory.html?fuel=electric">Electric</a>
+      </nav>
+      <nav class="c9-10 footer-col" aria-label="Services">
+        <span class="footer-title">Services</span>
+        <a href="financing.html">Financing</a>
+        <a href="services.html#trade-in">Trade-in</a>
+        <a href="services.html">Service &amp; care</a>
+        <a href="index.html#book">Test drive</a>
+      </nav>
+      <address class="c11-12 footer-col">
+        <span class="footer-title">Showroom</span>
+        <span>27 Kingsbridge Road<br>Manchester M14 6QR</span>
+        <a href="tel:01614960742">0161 496 0742</a>
+        <span>Mon–Sat 09:00–19:00<br>Sun 10:00–16:00</span>
+      </address>
+    </div>
+    <div class="wrap footer-bar">
+      <span>© <span data-year>2026</span> Car Zone. All rights reserved.</span>
+      <span class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></span>
+    </div>
+    <div class="wordmark" aria-hidden="true" data-wordmark>CAR ZONE</div>
+  </div>
+</footer>
+<!-- ============ /FOOTER ============ -->
+</body>
+</html>

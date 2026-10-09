@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Car Zone — Inventory page only (inventory.html). Shared system lives in styles.css.
+   html.inv-js is added by js/inventory.js (filtering, drawer, list view).
+   ========================================================================== */
+
+/* RESULTS SECTION · 48px under the page header */
+.inv-section { position: relative; padding-top: 48px; }
+.inv-results { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+/* Without JS there are no filters: let the results use the full width */
+html:not(.js) .inv-results { grid-column: 1 / -1; }
+
+/* FILTER SIDEBAR · glass, 24 radius, 24 padding, 24 gap */
+.inv-aside { border-radius: var(--r-24); padding: 24px; display: flex; flex-direction: column; gap: 24px; }
+.inv-aside-hd { flex-wrap: nowrap; }
+.inv-close { display: none; }
+.inv-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.inv-makes .legend { margin-bottom: 8px; }
+.inv-num { min-width: 16px; text-align: right; font-variant-numeric: tabular-nums; transition: color var(--dur-1) ease; }
+.check.is-zero { color: var(--caption); }
+.inv-range-scale { margin-top: 4px; }
+.inv-search .input-icon > svg { top: 18px; }
+
+/* "Reset all" / "Show all makes" — 44px text buttons */
+.inv-link {
+  display: inline-flex; align-items: center; height: 44px; padding: 0; border: 0; background: none;
+  font: 700 14px/20px var(--font-text); color: var(--accent); cursor: pointer;
+}
+.inv-link:hover { color: var(--heading); }
+.inv-link-text { color: var(--text); }
+.inv-link-text:hover { color: var(--accent); }
+/* Extra makes collapse behind "Show all 8 makes" (JS only) */
+.inv-js .inv-makes:not(.is-open) .inv-make-extra { display: none; }
+html:not(.inv-js) #inv-more { display: none; }
+
+/* TOOLBAR · count + active tags | sort + view */
+.inv-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.inv-summary { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
+.inv-total { margin-right: 8px; white-space: nowrap; }
+.inv-total:focus { outline: none; }
+.inv-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.inv-tags .chip-tag svg { color: var(--muted); transition: color var(--dur-1) ease; }
+.inv-tags .chip-tag:hover svg { color: var(--heading); }
+.inv-controls { display: flex; align-items: center; gap: 8px; }
+.inv-sort select { width: 200px; }
+.inv-view { flex: none; }
+.inv-open { display: none; }
+.inv-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 22px; height: 22px; padding: 0 6px; border-radius: var(--r-pill);
+  background: var(--accent); color: var(--accent-ink);
+  font: 700 12px/16px var(--font-text); font-variant-numeric: tabular-nums;
+}
+
+/* CARD GRID · list items carry the filter data; the article fills the cell */
+.inv-item { display: flex; min-width: 0; }
+.inv-item > .vcard { flex: 1; min-width: 0; }
+
+/* List view — horizontal cards */
+.inv-grid.is-list { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.inv-grid.is-list .vcard { flex-direction: row; align-items: stretch; gap: 24px; }
+.inv-grid.is-list .vcard-media { flex: 0 0 clamp(200px, 38%, 340px); aspect-ratio: 4 / 3; }
+.inv-grid.is-list .vcard-body { padding: 8px 8px 8px 0; justify-content: center; }
+.inv-grid.is-list .vcard-title { font: 600 24px/32px var(--font-display); letter-spacing: -.01em; }
+
+/* Empty state */
+.inv-empty {
+  border-radius: var(--r-24); padding: 48px 32px;
+  display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;
+}
+.inv-empty .icon-tile { margin-bottom: 8px; }
+.inv-empty-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+/* Pagination row */
+.inv-pager { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.inv-pager .pager-btn { color: var(--text); cursor: pointer; padding: 0; }
+.inv-pager .pager-btn[aria-current="page"] { color: var(--accent-ink); }
+.inv-pager .pager-btn[aria-disabled="true"] { color: var(--caption); }
+
+/* SOURCING CTA panel */
+.inv-cta { overflow: hidden; row-gap: 32px; }
+
+/* PRESS STATES — chips, segments, pager, tags shrink a touch while pressed */
+.inv-aside .chip, .inv-tags .chip, .inv-section .seg, .inv-pager .pager-btn {
+  transition: background-color var(--dur-1) ease, border-color var(--dur-1) ease, color var(--dur-1) ease, transform 160ms var(--ease-out);
+}
+.inv-aside .chip:active, .inv-tags .chip:active, .inv-section .seg:active, .inv-pager .pager-btn:active { transform: scale(.95); }
+
+/* Same-document view transition (grid ↔ list): only the cards move — the page itself
+   swaps instantly instead of running the cross-page fade from styles.css. */
+html.inv-vt::view-transition-old(root) { animation: none; opacity: 0; }
+html.inv-vt::view-transition-new(root) { animation: none; }
+html.inv-vt::view-transition-group(*) { animation-duration: 480ms; animation-timing-function: cubic-bezier(.2,.8,.2,1); }
+
+
+/* Tablet ≤ 1023px — sidebar becomes a slide-in glass drawer (JS only) */
+@media (max-width: 1023px) {
+  .inv-js .inv-open { display: inline-flex; }
+  .inv-js .inv-close { display: inline-flex; }
+  .inv-js .inv-aside {
+    position: fixed; z-index: 92; top: 8px; right: 8px; bottom: 8px;
+    width: min(400px, calc(100% - 16px));
+    overflow-y: auto; overscroll-behavior: contain;
+    border-radius: var(--r-32);
+    padding-bottom: 0;
+    background: linear-gradient(180deg, rgba(24,29,41,.94), rgba(10,14,23,.96));
+    transform: translateX(calc(100% + 24px));
+    visibility: hidden;
+    transition: transform var(--dur-3) var(--ease-out), visibility 0s linear var(--dur-3);
+  }
+  .inv-js .inv-aside.is-open {
+    transform: none; visibility: visible;
+    transition: transform var(--dur-3) var(--ease-out), visibility 0s;
+  }
+  .inv-js.inv-noanim .inv-aside { transition: none; }
+  /* Sticky "Show N cars" bar at the bottom of the drawer */
+  .inv-js .inv-apply {
+    position: sticky; bottom: 0; margin: 0 -24px; padding: 16px 24px 24px;
+    background: linear-gradient(180deg, rgba(10,14,23,0), rgba(10,14,23,.96) 32%);
+  }
+  .inv-scrim {
+    position: fixed; inset: 0; z-index: 91;
+    background: rgba(5,7,12,.64);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    opacity: 0; transition: opacity var(--dur-2) ease;
+  }
+  .inv-scrim.is-visible { opacity: 1; }
+  .inv-grid.is-list .vcard-media { flex-basis: 40%; }
+}
+
+/* Phone ≤ 767px */
+@media (max-width: 767px) {
+  .inv-section { padding-top: 32px; }
+  .inv-controls { width: 100%; flex-wrap: wrap; }
+  .inv-open { flex: 1; }
+  .inv-sort { order: 3; flex: 1 1 100%; }
+  .inv-sort select { width: auto; flex: 1; min-width: 0; }
+  .inv-empty { padding: 32px 24px; }
+  /* Compact horizontal list cards */
+  .inv-grid.is-list .vcard { gap: 16px; padding: 12px; border-radius: var(--r-24); }
+  .inv-grid.is-list .vcard-media { flex-basis: 40%; align-self: flex-start; border-radius: var(--r-12); }
+  .inv-grid.is-list .vcard-body { padding: 0; gap: 8px; }
+  .inv-grid.is-list .vcard-title { font-size: 18px; line-height: 24px; }
+  .inv-grid.is-list .vcard-meta, .inv-grid.is-list .vcard-line { font-size: 12px; line-height: 16px; }
+  .inv-grid.is-list .vcard-foot { flex-wrap: wrap; gap: 8px; }
+  .inv-grid.is-list .price { font-size: 20px; line-height: 28px; }
+  .inv-grid.is-list .vcard-badge { display: none; }
+  .inv-grid.is-list .vcard-save { right: 6px; top: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inv-aside .chip:active, .inv-tags .chip:active, .inv-section .seg:active, .inv-pager .pager-btn:active { transform: none; }
+}

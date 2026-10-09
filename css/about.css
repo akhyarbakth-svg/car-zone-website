@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Car Zone — About & contact (page-only styles; loads after styles.css)
+   ========================================================================== */
+
+/* Hero photo + glass stat tiles ------------------------------------------- */
+.about-photo {
+  position: relative; overflow: hidden;
+  border-radius: var(--r-32); border: 1px solid var(--line-08);
+  background: var(--surface);
+}
+.about-photo img {
+  width: 100%; height: 560px; object-fit: cover; object-position: center 60%;
+}
+.about-photo::after {                         /* fade so the glass tiles always read */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 240px;
+  background: linear-gradient(0deg, rgba(5,7,12,.85), rgba(5,7,12,0));
+  pointer-events: none;
+}
+.about-stats { position: absolute; left: 24px; right: 24px; bottom: 24px; }
+
+
+/* Timeline — year rows with a vertical progress line ----------------------- */
+.timeline {
+  --tl-pad: 40px;           /* room for the line, left of the cards */
+  --tl-x: 11px;             /* line centre from the list's left edge */
+  position: relative;
+  padding-left: var(--tl-pad);
+}
+.timeline > li { position: relative; }
+.timeline::before, .timeline::after {         /* track + progress fill */
+  content: ""; position: absolute; width: 2px; border-radius: 2px;
+  left: calc(var(--tl-x) - 1px);
+  top: var(--tl-top, 36px);
+  height: var(--tl-h, calc(100% - 80px));
+}
+.timeline::before { background: var(--line-12); }
+.timeline::after {
+  background: linear-gradient(180deg, rgba(143,211,255,.55), var(--accent));
+  box-shadow: 0 0 12px rgba(143,211,255,.45);
+  transform-origin: top center;
+  transform: scaleY(var(--p, 1));
+}
+.timeline > li::before {                      /* dot on the line */
+  content: ""; position: absolute; top: 30px;
+  left: calc(var(--tl-x) - var(--tl-pad) - 6px);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--line-24);
+  transition: background-color var(--dur-3) ease, border-color var(--dur-3) ease, box-shadow var(--dur-3) ease;
+}
+.timeline > li.is-on::before {
+  background: var(--accent); border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(143,211,255,.16);
+}
+.timeline > li.is-today { border-color: rgba(143,211,255,.38); }
+.timeline > li.is-today::after {              /* soft accent wash on the current row */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(90deg, rgba(143,211,255,.14), rgba(143,211,255,0) 70%);
+}
+.timeline > li.is-today.is-on::before { box-shadow: 0 0 0 5px rgba(143,211,255,.2), 0 0 20px rgba(143,211,255,.7); }
+
+/* Rows reveal in sequence as the line reaches them (about.js adds .is-live) */
+@media (prefers-reduced-motion: no-preference) {
+  .timeline.is-live > li {
+    transition: opacity var(--dur-5) var(--ease-out), transform var(--dur-5) var(--ease-out), border-color var(--dur-2) ease;
+  }
+  .timeline.is-live > li:not(.is-on) { opacity: 0; transform: translateY(16px); }
+  .timeline.is-live > li:not(.is-on)::before { transition: none; }
+}
+
+
+/* Team cards: portrait wrapper, zoom + colour on hover ---------------------- */
+.team-photo { overflow: hidden; border-radius: var(--r-16); }
+.team-photo img {
+  display: block;
+  transition: transform var(--dur-5) var(--ease-out), filter var(--dur-4) ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .team-photo img { filter: grayscale(.7) contrast(1.03); }
+  .team-card:hover .team-photo img,
+  .team-card:focus-within .team-photo img { filter: none; transform: scale(1.05); }
+}
+
+
+/* Map card: gentle zoom + pulsing pin over "27 Kingsbridge Road" ------------- */
+.map-card {
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: 440px; height: 100%;
+  border-radius: var(--r-32); border: 1px solid var(--line-08);
+  background: var(--surface);
+}
+.map-zoom {
+  position: absolute; inset: 0;
+  transition: transform 900ms var(--ease-out);
+  will-change: transform;
+}
+.map-zoom img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+@media (hover: hover) and (pointer: fine) {
+  .map-card:hover .map-zoom { transform: scale(1.05); }
+}
+
+/* Pin position is set by about.js from the image's cover-crop (px); the % values
+   are the fallback (pin tip sits at 587/1200 × 343/675 of the map image). */
+.map-pin {
+  position: absolute; z-index: 1; width: 0; height: 0; pointer-events: none;
+  left: var(--pin-x, 48.9%); top: var(--pin-y, 50.8%);
+}
+.map-pin i {
+  position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid rgba(229,57,53,.9);
+  background: rgba(229,57,53,.22);
+  opacity: 0;
+  animation: map-pulse 2.8s var(--ease-out) infinite;
+}
+.map-pin i + i { animation-delay: 1.4s; }
+@keyframes map-pulse {
+  0%   { transform: scale(.35); opacity: .9; }
+  70%  { opacity: 0; }
+  100% { transform: scale(3.6); opacity: 0; }
+}
+
+.contact-card a.t-h4 { transition: color var(--dur-1) ease; }
+.contact-card a.t-h4:hover { color: var(--accent); }
+
+
+/* Contact form: message fills the height of the stacked fields ---------------- */
+.field-message textarea { flex: 1; height: auto; min-height: 160px; }
+.hairline-top.row-between { padding-top: 24px; }
+
+
+/* Tablet ≤ 1023px ------------------------------------------------------------ */
+@media (max-width: 1023px) {
+  .about-photo img { height: 480px; }
+  .map-card { min-height: 380px; }
+}
+
+/* Phone ≤ 767px --------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .about-stats { left: 12px; right: 12px; bottom: 12px; row-gap: 8px; column-gap: 8px; }
+  .about-stats .stat { padding: 12px 8px; border-radius: var(--r-16); }
+  .about-stats .t-num { font-size: 28px; line-height: 32px; }
+  .about-stats .unit { font-size: 14px; }
+  .about-stats .stat-label { font-size: 12px; line-height: 16px; }
+  .about-photo img.tall-pic { height: 440px !important; }   /* taller than the shared 360px so the car clears the 2×2 tiles */
+  .about-photo::after { height: 200px; }
+  .timeline { --tl-pad: 28px; --tl-x: 7px; }
+  .timeline > li { padding: 16px 16px 16px 18px; grid-template-columns: 72px 1fr; gap: 8px; }
+  .timeline > li::before { top: 26px; }
+  .timeline .year { font-size: 20px; line-height: 28px; }
+  .map-card { min-height: 320px; }
+  .field-message textarea { min-height: 140px; }
+  .hairline-top.row-between .btn { width: 100%; }
+}
+
+
+/* Reduced motion: no zoom, no pulse, no colour animation ------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .map-card:hover .map-zoom, .team-card:hover .team-photo img { transform: none; }
+  .map-pin i { animation: none; opacity: .6; transform: scale(1.4); }
+  .map-pin i + i { display: none; }
+}

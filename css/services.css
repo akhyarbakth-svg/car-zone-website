@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Car Zone — Services page only (services.html). Shared system lives in styles.css.
+   ========================================================================== */
+
+/* PAGE HEADER · copy and photo vertically centred (comp), 48px row gap when stacked */
+.svc-hd-grid { align-items: center; row-gap: 48px; }
+.svc-hero-img { height: 480px; }
+.svc-team-img { height: 520px; }
+
+/* "Next available slot" glass badge floating over the workshop photo */
+.slot-badge {
+  position: absolute; left: 24px; bottom: 24px; max-width: calc(100% - 48px);
+  border-radius: var(--r-24); padding: 16px 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+
+/* SERVICE CARDS · "From £149" line (a div, so .svc-card > p styling does not apply) */
+.svc-from { font-size: 14px; line-height: 20px; font-weight: 700; color: var(--soft); }
+.svc-from .t-h3 { color: var(--heading); }
+
+/* PLANS · let the "Recommended" corner badge sit clear of the plan name */
+.plan .corner-badge { z-index: 1; }
+
+/* TECHNICIANS · two stat tiles */
+.stat-tiles { margin: 40px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.stat-tile { border-radius: var(--r-16); padding: 16px; }
+.stat-tile dt { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--caption); }
+.stat-tile dd { margin: 4px 0 0; color: var(--heading); }
+
+/* TRADE-IN · panel clips its glow orbs; columns sit above them */
+.trade-panel { position: relative; overflow: hidden; align-items: center; row-gap: 40px; }
+.val-col { position: relative; }
+.val-form { display: flex; flex-direction: column; gap: 8px; }
+.val-form > .field { margin-top: 0; }
+.val-form > .val-mileage { margin-top: 8px; }
+.val-form > .btn { margin-top: 8px; }
+.field-msg { font-size: 13px; line-height: 18px; font-weight: 600; color: #FF8F8F; }
+.field-msg:empty { display: none; }
+
+.val-result { border-radius: var(--r-24); padding: 24px; border-color: rgba(143,211,255,.32); }
+.val-result:focus { outline: none; }
+.val-actions { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+
+/* BOOKING · opening hours card and the uppercase registration field */
+.hours { padding: 8px 24px; }
+.upper { text-transform: uppercase; }
+/* Brief highlight when a plan button pre-selects the service */
+select.is-picked { border-color: var(--accent); }
+
+/* Tablet ≤ 1023px */
+@media (max-width: 1023px) {
+  .svc-hero-img { height: 420px; }
+}
+
+/* Phone ≤ 767px */
+@media (max-width: 767px) {
+  .stat-tile dd.t-num { font-size: 32px; line-height: 40px; }
+  .stat-tile dd .unit { font-size: 16px; }
+  .slot-badge { left: 16px; bottom: 16px; max-width: calc(100% - 32px); padding: 12px 16px; }
+  .hours { padding: 4px 20px; }
+}
